@@ -1,4 +1,4 @@
-module Rubik(Rubik(Rubik), defaultRubik, trans,
+module Rubik(Rubik, defaultRubik, trans,
     turnF,turnS,turnB,
     turnR, turnM, turnL,
     turnU, turnE, turnD) where

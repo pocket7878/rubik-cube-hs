@@ -80,3 +80,12 @@ translate variable by permutation.
   - turnD :: Permutation Int
 
   You can create other turning operation with inverse, mappend.
+
+## And More..
+
+Manipulating turning operation cycle with haskell.
+
+> let action = P.inverse R.turnR `mappend` P.inverse R.turnD
+> -- Calc cycle length of action.
+> foldl1 lcm (map (\x -> P.cycleLength x) $ P.findCycles action)
+> 105
