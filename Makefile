@@ -1,5 +1,5 @@
 OUT=rubik
-HSS=Main.hs Symm.hs Rubik.hs
+HSS=Main.hs Perm.hs Rubik.hs
 $(OUT): $(HSS)
 	ghc -o $@ $^
 run: $(OUT)

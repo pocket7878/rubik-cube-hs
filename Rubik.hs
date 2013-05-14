@@ -2,7 +2,7 @@ module Rubik(Rubik(Rubik), defaultRubik, trans,
     turnF,turnS,turnB,
     turnR, turnM, turnL,
     turnU, turnE, turnD) where
-import qualified Symm as S
+import qualified Perm as P
 import Data.Monoid
 
 data Color = White | Red | Orange 
@@ -30,8 +30,8 @@ defaultRubik = Rubik $ (zip [0..8] $ repeat White) ++
   42 43 44 | 51 52 53
 -}
 
-trans :: Rubik -> S.Symmetric Int -> Rubik
-trans (Rubik xs) sym = Rubik $ map (\(f,c) -> ((S.trans f sym),c)) xs
+trans :: Rubik -> P.Permutation Int -> Rubik
+trans (Rubik xs) perm = Rubik $ map (\(f,c) -> ((P.trans f perm),c)) xs
 
 --Util
 indexed :: [a] -> [(Int, a)]
@@ -48,27 +48,27 @@ turnRightSurf :: [Int] -> [(Int, Int)]
 turnRightSurf xs = map (\(i,v) -> (v, xs !! (6 + (div i 3) - mod i 3 * 3))) $ indexed xs
 
 --Turn Symbols
-turnF = S.Symm $  turnLeftSurf [0..8] ++
+turnF = P.Perm $  turnLeftSurf [0..8] ++
                 turnbelt ([42,43,44], [9,12,15], [53,52,51], [35,32,29])
 
-turnS = S.Symm $ turnbelt ([39,40,41],[19,22,25],[50,49,48],[34,31,28])
+turnS = P.Perm $ turnbelt ([39,40,41],[19,22,25],[50,49,48],[34,31,28])
 
-turnB = S.Symm $ turnLeftSurf [18..26] ++
+turnB = P.Perm $ turnLeftSurf [18..26] ++
                turnbelt ([38,37,36], [27,30,33], [45,46,47], [17,14,11])
 
-turnR = S.Symm $ turnLeftSurf [9..17] ++
+turnR = P.Perm $ turnLeftSurf [9..17] ++
                turnbelt ([44,41,38], [18,21,24], [47, 50, 53], [8,5,2])
 
-turnM = S.Symm $ turnbelt ([37,40,43],[1,4,7],[52,49,46],[25,22,19])
+turnM = P.Perm $ turnbelt ([37,40,43],[1,4,7],[52,49,46],[25,22,19])
 
-turnL = S.Symm $ turnLeftSurf [27..35] ++
+turnL = P.Perm $ turnLeftSurf [27..35] ++
                turnbelt ([36,39,41], [0,3,6], [51,48,45], [24,21,18])
 
-turnU = S.Symm $ turnLeftSurf [36..44] ++
+turnU = P.Perm $ turnLeftSurf [36..44] ++
                 turnbelt ([2,1,0],[29,28,27],[20,19,18],[11,10,9])
 
-turnE = S.Symm $ turnbelt ([3,4,5],[12,13,14],[21,22,23],[30,31,32])
+turnE = P.Perm $ turnbelt ([3,4,5],[12,13,14],[21,22,23],[30,31,32])
 
-turnD = S.Symm $ turnRightSurf [45..53] ++
+turnD = P.Perm $ turnRightSurf [45..53] ++
                 turnbelt ([6,7,8],[15,16,17],[24,25,26],[33,34,35])
 
