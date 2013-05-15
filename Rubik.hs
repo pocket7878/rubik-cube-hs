@@ -8,8 +8,10 @@ import Data.Monoid
 data Color = White | Red | Orange 
             | Yellow | Green | Blue deriving (Show, Eq,Enum)
 
+-- | Rubik represents rubik's cube state.
 data Rubik = Rubik [(Int,Color)] deriving (Show, Eq)
 
+-- | Create a normal state rubik's cube.
 defaultRubik :: Rubik
 defaultRubik = Rubik $ (zip [0..8] $ repeat White) ++ 
                         (zip [9..17] $ repeat Red) ++
@@ -30,6 +32,7 @@ defaultRubik = Rubik $ (zip [0..8] $ repeat White) ++
   42 43 44 | 51 52 53
 -}
 
+-- | Apply transform to rubik's cube.
 trans :: Rubik -> P.Permutation Int -> Rubik
 trans (Rubik xs) perm = Rubik $ map (\(f,c) -> ((P.trans f perm),c)) xs
 
