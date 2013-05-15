@@ -1,3 +1,13 @@
+{- |
+Module      :  $Header$
+Description :  Rubik's cube representation.
+Copyright   :  (c) <Masato Sogame>
+License     :  LLGPL
+
+Maintainer  :  <poketo7878@gmail.com>
+Stability   :  unstable
+Portability :  portable
+-}
 module Rubik(Rubik, defaultRubik, trans,
     turnF,turnS,turnB,
     turnR, turnM, turnL,

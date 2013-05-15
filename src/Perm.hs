@@ -1,3 +1,13 @@
+{- |
+Module      :  $Header$
+Description :  Provides representation of methematic permutation.
+Copyright   :  (c) <Masato Sogame>
+License     :  LLGPL
+
+Maintainer  :  <poketo7878@gmail.com>
+Stability   :  unstable
+Portability :  portable
+-}
 module Perm(Permutation(Perm),clean,trans,inverse,
     findCycles,CyclePerm(MkCyclePerm),
     fromPermutation, toPermutation,cycleLength) where
