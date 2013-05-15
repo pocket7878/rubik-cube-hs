@@ -12,7 +12,7 @@ module Rubik(Rubik, defaultRubik, trans,
     turnF,turnS,turnB,
     turnR, turnM, turnL,
     turnU, turnE, turnD) where
-import qualified Perm as P
+import qualified Rubik.Perm as P
 import Data.Monoid
 
 data Color = White | Red | Orange 

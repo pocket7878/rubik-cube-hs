@@ -16,6 +16,6 @@ cabal-version:       >=1.8
 
 library
   hs-source-dirs:      src/
-  exposed-modules:     Perm, Rubik
+  exposed-modules:     Rubik.Perm, Rubik
   -- other-modules:       
   build-depends:       base ==4.5.*

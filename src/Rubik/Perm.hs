@@ -8,7 +8,7 @@ Maintainer  :  <poketo7878@gmail.com>
 Stability   :  unstable
 Portability :  portable
 -}
-module Perm(Permutation(Perm),clean,trans,inverse,
+module Rubik.Perm(Permutation(Perm),clean,trans,inverse,
     findCycles,CyclePerm(MkCyclePerm),
     fromPermutation, toPermutation,cycleLength) where
 import Data.List
